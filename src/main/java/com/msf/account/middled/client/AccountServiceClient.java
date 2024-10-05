@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 public interface AccountServiceClient {
 
     @PostMapping("/accounts")
-    ResponseEntity<Account> createAccount(@RequestHeader(value = "x-cm-client-request-id", required = true) String xCmClientRequestId,
+    ResponseEntity<Account> createAccount(@RequestHeader(value = "x-sw-client-request-id", required = true) String xCmClientRequestId,
                                            @RequestHeader(value = "x-cm-client-user-agent", required = true) String xCmClientUserAgent,
                                            @RequestBody Account account);
 
     @PutMapping("/accounts/{id}")
-    ResponseEntity<Account> updateAccount(@RequestHeader(value = "x-cm-client-request-id", required = true) String xCmClientRequestId,
+    ResponseEntity<Account> updateAccount(@RequestHeader(value = "x-sw-client-request-id", required = true) String xCmClientRequestId,
                                           @RequestHeader(value = "x-cm-client-user-agent", required = true) String xCmClientUserAgent,
                                           @PathVariable("id") Long id,
                                           @RequestBody Account account);
