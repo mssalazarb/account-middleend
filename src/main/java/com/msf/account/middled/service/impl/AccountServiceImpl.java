@@ -15,13 +15,11 @@ public class AccountServiceImpl implements IAccountService {
     @Override
     public Account createAccount(Account account) {
         return accountServiceClient
-                .createAccount("wer", "wer", account).getBody(); // son los headers que debemos poner
-        // si van nulos no funciona
+                .createAccount("wer", "wer", account).getBody();
     }
 
     @Override
-    public Account updateAccount(Account account) {
-        Long accountId = account.getId();
-        return accountServiceClient.updateAccount("wer","wer",accountId,account).getBody();
+    public Account getAccountById(Long id) {
+        return accountServiceClient.getAccountById("wer", "wer", id).getBody();
     }
 }

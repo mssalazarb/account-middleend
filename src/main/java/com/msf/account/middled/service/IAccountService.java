@@ -5,6 +5,6 @@ import com.msf.account.middled.domain.Account;
 
 public interface IAccountService {
     Account createAccount(Account account);
-    Account updateAccount(Account account);
+    Account getAccountById(Long id);
 }
 
