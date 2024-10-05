@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: ${APP_NAME}
+  profiles:
+    active: local
+server:
+  port: ${PORT}
+
+microservices:
+  url: http://grupo1.docker.localhost
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      accountService:
+        sliding-window-size: 3
+        failure-rate-threshold: 5
+        wait-duration-in-open-state:
+          seconds: 5
+        permitted-number-of-calls-in-half-open-stat: 3
+        minimum-number-of-calls: 2
+
