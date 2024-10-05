@@ -15,11 +15,13 @@ public class AccountController {
     private final IAccountService iAccountService;
 
     @PostMapping
+    @CrossOrigin
     public ResponseEntity<Account> createAccount(@RequestBody Account account){
         return new ResponseEntity<>(iAccountService.createAccount(account), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
+    @CrossOrigin
     public ResponseEntity<Account> getAccountById(@PathVariable("id") Long id){
         return new ResponseEntity<>(iAccountService.getAccountById(id), HttpStatus.CREATED);
     }
